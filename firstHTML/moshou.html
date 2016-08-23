@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+
+        <title></title>
+    </head>
+    <style>
+        body {
+            background-color: #202020;
+            color: #808080;
+        }
+        .all_container {
+            background-color: #0F0F0F;
+            border-radius: 1rem;
+            padding-top: 1px;
+            margin-top: 2rem;
+        }
+        .m_title {
+            font-size: 4rem;
+        }
+        .img_moshou {
+            border-radius: 0.5 rem;
+            width: 100%;
+            height: 100%;
+            padding-left: 10%;
+            padding-right: 10%;
+        }
+        h4 {
+            margin-top: 5
+        }
+        .m_inline {
+            display: inline;
+        }
+        .left_image {
+            width: 140px;
+            height: 200px;
+            margin-top: 50px;
+            float: right;
+            background: url("https://raw.githubusercontent.com/super89767/IMAGE/master/PS/Building/Enjoy/World%20of%20Warcraft/icon/wow_beast_sign.png") no-repeat;
+            background-size: 100%;
+        }
+
+        .right_image {
+            width: 135px;
+            height: 205px;
+            margin-top: 55px;
+            float: left;
+            background: url("https://raw.githubusercontent.com/super89767/IMAGE/master/PS/Building/Enjoy/World%20of%20Warcraft/icon/wow_alliance_sign.png") no-repeat;
+            background-size: 100%;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #808080;
+            width: 80%;
+        }
+
+        .roleIntroduction-item {
+            border-bottom: 1px solid #808080;
+        }
+
+        ul{
+            width: 80%;
+            margin-right: 10%;
+            margin-left: 10%;
+            text-align: left;
+            padding-left: 2%;
+            padding-right: 2%;
+        }
+        li img {
+            width: 100%;
+            height: 100%;
+        }
+        li div {
+            display: inline;
+        }
+
+        .performer {
+            font-size: 0.92 rem;
+        }
+
+        .role_introduction {
+            font-size: 0.95 rem;
+        }
+        
+        @font-face { 
+            font-family: Anglia;/*定义font的名字*/ 
+            src: url('font/Anglia Script.ttf');/*把下载的字体文件引入进来*/ 
+        }
+        .end{
+            font-size: 1.7rem;
+            font-family:Anglia;
+            font-weight: bold;
+        }
+    </style>
+    
+    <body >
+        <div class="container all_container center-align">
+            <img src="https://raw.githubusercontent.com/super89767/IMAGE/master/PS/Building/Enjoy/World%20of%20Warcraft/font/warcraft_gray.png" />
+            <h1 class="m_title">魔兽</h1>
+            <img class="img_moshou" src="https://raw.githubusercontent.com/super89767/IMAGE/master/PS/Building/Enjoy/World%20of%20Warcraft/img/moshou.jpg" />
+            <div >
+                <div class="row">
+                    <div class="col s4 left_div" >
+                        <div class="left_image"></div>
+                    </div>
+                    <div class="col s4">
+                        <h4>一场浩浩汤汤</h4>
+                        <h4>的</h4>
+                        <h4>旷世战争</h4>
+                        <br>
+                        <h4>部落为探寻希望！</h4>
+                        <h4>联盟为保卫家园！</h4>
+                    </div>
+                    <div class="col s4 right_div" >
+                        <div class="right_image"></div>
+                    </div>
+                </div>
+                <h4>爆发生存与灭亡的背水之战</h4>
+            </div>
+
+            <br/>
+            <h5><i>人物介绍</i></h4>
+            <hr/>
+            <ul id="role_list">
+                ${test}
+                <template v-for="item in roles">
+                    <li class="roleIntroduction-item row">
+                        <did class="col s3">
+                            <img src="${item.img_url}">
+                        </did>
+                        <div classs="col s9">
+                            <span>${item.role}</span>
+                            <br />
+                            <span class="performer">演员</span>
+                            <span class="performer"> <i>${item.performer}</i></span>
+                            <br/>
+                            <br/>
+                            <span class="role_introduction"> ${item.info} </span>
+                        </div>
+                    </li>
+                </template>
+            </ul>
+            
+                <br/>
+                <span class="end">End</span>
+                <br/>
+                <br/>
+                <span><i>Design by BoBo</i></span>
+                <br/>
+                <br/>
+        </div>
+        </div>
+    </body>
+    
+    <script type="text/javascript" src="http://cdn.jsdelivr.net/vue/1.0.26/vue.min.js"></script>
+    <script>
+        Vue.config.delimiters = ["${", "}"];
+        var role_list = new Vue({
+            el:'#role_list',
+            data:{
+                roles : [{
+                    role : "安杜因·洛萨",
+                    img_url:"http://c.hiphotos.baidu.com/baike/crop%3D0%2C22%2C505%2C718%3Bh%3D195%3Bq%3D95/sign=b019c347748da9775a60dc6b8d61d42b/58ee3d6d55fbb2fbb99f5866484a20a44623dc0a.jpg",
+                    performer : "多米尼克·库珀",
+                    info : "洛萨是名无畏的勇士。为了阻止一场毁灭世界的战争，他忠诚地为了自己的国王而战，挑战不可能战胜的敌人，维护人民的安全和保护自己唯一的儿子。为成为艾泽拉斯需要的保护者，他的动力来源于对国家的忠诚，经常还需要他牺牲些个人感情。虽然为人冷漠，但是洛萨愿意为那些宣誓以生命为代价捍卫国王和王国的人挺身而出。"
+                }, {
+                    role : "杜隆坦",
+                    img_url:"http://e.hiphotos.baidu.com/baike/crop%3D0%2C10%2C206%2C293%3Bh%3D195%3Bq%3D95/sign=dc97f9c462380cd7f251f8ad9c748105/574e9258d109b3def06be21ccbbf6c81810a4ce9.jpg",
+                    performer : "托比·凯贝尔",
+                    info : "是位备受爱戴的领袖，他希望能够在那为家人打造一个未来，对自己的种族有信心，认为他们在古尔丹当权前的道德才是正确的，兽人是遵循自然规律的强大种族，对兽人而言纪律和荣誉是不容置疑的。他知道如果自己的人民要生存，他和德拉卡就必须领导兽人在艾泽拉斯大陆上建设一个家园。"
+                }, {
+                    role : "迦罗娜",
+                    img_url:"http://d.hiphotos.baidu.com/baike/crop%3D0%2C0%2C773%2C1097%3Bh%3D195%3Bq%3D95/sign=6bae00fe2af5e0fefa57d34161501898/80cb39dbb6fd52664ba733f3ac18972bd507364c.jpg",
+                    performer : "宝拉·巴顿",
+                    info : "兽人巫师古尔丹的奴隶。迦罗娜是位美貌的半兽人。她是两个世界的结合体，但又不被任何一方接受。在挫折中不断变强大，她是一个求生者。游离于两个世界之间，为了被接受和找到归属而战。成为一位自立的战士，并且知道为了生存必须让别人对自己心生畏惧。但被洛萨的勇敢和魅力所吸引后，她发誓要与他并肩作战。"
+                }, {
+                    role : "古尔丹",
+                    img_url:"http://e.hiphotos.baidu.com/baike/crop%3D0%2C0%2C773%2C1097%3Bh%3D195%3Bq%3D95/sign=c871c6e81ed8bc3ed2475c8abfbb8a2e/72f082025aafa40fef0bbd0fac64034f79f01916.jpg",
+                    performer : "吴彦祖",
+                    info : "古尔丹是一个狡猾、残忍和无所不能的坏人。他认为力量是绝对和不可抗拒的。为了获得艾泽拉斯大陆的统治权，他可以不惜一切代价。他将各个兽人氏族联合组成一支毁灭性的侵略军队，从而达到权力顶峰。为了向军队补充强大能量，他不惜牺牲一切生灵。在征服的欲望驱使下，古尔丹认为所有生命不过是部落的能量来源。"
+                }, {
+                    role : "莱恩·乌瑞恩、国王",
+                    img_url:"http://f.hiphotos.baidu.com/baike/crop%3D0%2C0%2C773%2C1097%3Bh%3D195%3Bq%3D95/sign=fe09a4eaffdcd100d9d3a2614fbb6b20/4b90f603738da977fcdc88ccb751f8198718e362.jpg",
+                    performer : "多米尼克·库珀",
+                    info : "每一位国王都担负着时代的挑战，对于高贵的莱恩国王而言，这份责任就是艾泽拉斯绵延曲折历史中最伟大的战争。作为仁慈的君王，必须趁为时未晚之时，团结艾泽拉斯大陆的其他领袖与降临他们世界的兽人军队战斗。他相信如果艾泽拉斯的人民不一致对外，他们就会灭亡。为了维护王国的安全和保护人民，他将血战到底。"
+                }, {
+                    role : "安杜因·洛萨",
+                    img_url:"http://c.hiphotos.baidu.com/baike/crop%3D13%2C0%2C759%2C1080%3Bh%3D195%3Bq%3D95/sign=989a14eaecc4b74520dbed56f2cd2d3b/91529822720e0cf34505dc380d46f21fbf09aa07.jpg",
+                    performer : "克兰西·布朗",
+                    info : "如果兽人是为战斗而生的，那么毁灭者黑手就是战争的化身。他身披骸骨制成的铠甲，这些骸骨来自于他亲手杀死的人。他拥有兽人所尊敬的一切，力量、无畏、荣耀。他是凶猛的战士，光是一声嘶吼就足以让对手胆战心惊。他也是古尔丹进攻人类世界时不可或缺的活武器。"
+                }]
+            }
+        });
+    </script>
+</html>
